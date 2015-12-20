@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="test.css">
+</head>
+<body>
+	<div class="container">
+		<div class="Demo1">
+			<h2>Two different angular apps using angular.bootstrap</h2>
+			<div class="app1" id="app" ng-controller="mycontroller">
+				<p>I am using angular app: <b>{{angularApp}}</b></p>
+			</div>
+		</div>
+		<div>
+			<input type="button" id="useapp1" value="Use app1"/>
+			<input type="button" id="useapp2" value="Use app2"/>
+		</div>
+		<p><b>Note: You should not use the ng-app directive when manually bootstrapping your app.</b>
+			You can't bootstrap manully while using ng-app.
+		</p>
+		<p><b>Note: Once you manually bootstrap with one module you can't bootstrap to another module.</b>
+			In this case if you select app1 u can't change it to app2 later.
+		</p>
+	</div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+	<script type="text/javascript" src="test.js"></script>
+	<script type="text/javascript">
+		$('#useapp1').on('click', function() {
+			angular.bootstrap($('#app'), ['app1']);
+		});
+		$('#useapp2').on('click', function() {
+			angular.bootstrap($('#app'), ['app2']);
+		})
+	</script>
+</body>
+</html>
